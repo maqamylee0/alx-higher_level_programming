@@ -1,3 +1,4 @@
 def magic_calculation(a, b):
     num = 98
-    return num + (a ** b) 
+    bin_add = (a ** b)
+    return num + bin_add 
