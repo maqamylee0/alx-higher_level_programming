@@ -1,4 +1,5 @@
 #!/bin/bash
 filename="$PYFILE"
-python3 -m py_compile $PYFILE
-mv ./__pycache__/main.*.pyc ${filename%.*}.pyc
+echo "Compiling $filename ..."
+py3compile $PYFILE
+mv ./__pycache__/*.*.pyc ${filename%.*}.pyc
