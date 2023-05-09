@@ -6,10 +6,7 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *current = malloc(sizeof(listint_t));
-
-	if (!current)
-		exit(1);
+	listint_t *current;
 
 	current = list;
 	while (current != NULL)
@@ -17,11 +14,8 @@ int check_cycle(listint_t *list)
 		if (current->next != list && current->next != current)
 			current = current->next;
 		else
-		{
-			free(current);
 			return (1);
-		}
 	}
-	free(current);
+	current = NULL;
 	return (0);
 }
