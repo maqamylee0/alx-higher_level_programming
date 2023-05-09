@@ -2,7 +2,8 @@
 import random
 number = random.randint(-10000, 10000)
 num = number
-
+if number < 0:
+    num = -num
 n = num % 10
 if number < 0:
     n = -n
