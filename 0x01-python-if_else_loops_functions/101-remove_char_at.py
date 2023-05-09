@@ -4,9 +4,9 @@ def remove_char_at(str, n):
     str_copy = ""
     for char in str:
         if i == n:
+            i += 1
             continue
-            i++
-        else
+        else:
             str_copy += char
-            i++
+            i += 1
     return str_copy
