@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+tup = ('add', 'sub')
 import magic_calculation_102
 add = magic_calculation_102.add
 sub = magic_calculation_102.sub
