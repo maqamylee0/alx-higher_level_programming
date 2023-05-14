@@ -7,4 +7,3 @@ def no_c(my_string):
         else:
             str += x
     return str
-
