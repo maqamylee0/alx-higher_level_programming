@@ -50,9 +50,7 @@ int is_palindrome(listint_t **head)
 		return (1);
 	half = nodes / 2;
 	if (nodes % 2 != 0)
-	{
-		half = half++;
-	}
+		half = half + 2;
 	front = *head;
 	while (counter != half)
 	{
