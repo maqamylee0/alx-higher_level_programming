@@ -46,6 +46,8 @@ int is_palindrome(listint_t **head)
 		nodes++;
 		front = front->next;
 	}
+	if (nodes == 1)
+		return (1);
 	half = nodes / 2;
 	front = *head;
 	while (counter != half)
