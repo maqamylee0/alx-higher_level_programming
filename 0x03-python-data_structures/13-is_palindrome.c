@@ -17,7 +17,7 @@ listint_t *reverse_list(listint_t **head)
 	before = NULL;
 	next = NULL;
 
-	while (current != NULL && current->next != NULL)
+	while (current != NULL)
 	{
 		next = current->next;
 		current->next = before;
@@ -36,44 +36,31 @@ listint_t *reverse_list(listint_t **head)
 int is_palindrome(listint_t **head)
 {
 	listint_t *front, *front2;
-	listint_t **head2 = NULL, *head3 = NULL;
+	size_t nodes = 0, counter = 1, half = 0;
 
 	if (*head == NULL)
 		return (1);
-	head2 = malloc(sizeof(listint_t));
-	if (!(*head2))
-		return (0);
-	(*head2)->n = (*head)->n;
-	(*head2)->next = NULL;
 	front = *head;
 	while (front != NULL)
 	{
-		add_nodeint_end(head2, front->n);
+		nodes++;
 		front = front->next;
 	}
-	head3 = reverse_list(head2);
-	front2 = head3;
-	while (front != NULL && front2 != NULL)
+	half = nodes / 2;
+	front = *head;
+	while (counter != half)
+	{
+		counter++;
+		front = front->next;
+	}
+	front2 = reverse_list(&front->next);
+	front = *head;
+	while (front2 != NULL)
 	{
 		if (front->n != front2->n)
-		{
-			free_listint(*head2);
-			free_listint(head3);
 			return (0);
-		}
-		if (front->next != NULL)
-		{
-			front = front->next;
-			front2 = front2->next;
-		}
-		else
-		{
-			free_listint(*head2);
-			free_listint(head3);
-			return (0);
-		}
+		front = front->next;
+		front2 = front2->next;
 	}
-	free_listint(*head2);
-	free_listint(head3);
 	return (1);
 }
