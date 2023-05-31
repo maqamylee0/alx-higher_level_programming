@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-
+"""class defininh a square"""
 class Square:
-    def __init__(self, side=0):
-        self.__side = side
-
+    """basic empty- clas"""
+    pass
