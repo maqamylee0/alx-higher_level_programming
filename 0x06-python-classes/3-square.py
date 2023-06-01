@@ -10,7 +10,7 @@ class Square:
             raise TypeError("size must be an integer")
         if size < 0:
             raise ValueError("size must be >= 0")
-        seif.__size = size
+        self.__size = size
 
     def area(self):
-        return self.size ** 2
+        return self.__size ** 2
