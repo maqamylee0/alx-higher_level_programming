@@ -5,6 +5,7 @@
 class Rectangle:
     """real definition of a rectangle"""
     number_of_instances = 0
+    print_symbol = '#'
 
     def __init__(self, width=0, height=0):
         if not isinstance(width, int):
@@ -62,7 +63,7 @@ class Rectangle:
         if height == 0:
             return ("")
         for i in range(self.__height):
-            print("#" * self.__width)
+            print(self.print_symbol * self.__width)
 
     def __repr__(self):
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
