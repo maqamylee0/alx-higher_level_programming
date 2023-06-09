@@ -26,5 +26,10 @@ class TestMaxInteger(unittest.TestCase):
         list4 = []
         self.assertEqual(max_integer(list4), None)
 
+    def test_str(self):
+        """check string"""
+        list5 = ["emma"]
+        self.assertEqual(max_integer(list5), 'm')
+
 if __name__ == '__main__':
     unittest.main()
