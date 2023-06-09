@@ -1,5 +1,10 @@
 #!/usr/bin/python3
+"""module to divide matrix by div"""
+
+
 def matrix_divided(matrix, div):
+    """function to divide matrix"""
+
     new_matrix = []
     if not isinstance(matrix, list):
         raise TypeError("matrix must be a matrix (list of lists) of "
