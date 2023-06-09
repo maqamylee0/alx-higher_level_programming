@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """module that prints a square"""
 
+
 def print_square(size):
     """function that prints a square"""
     if not isinstance(size, int):
