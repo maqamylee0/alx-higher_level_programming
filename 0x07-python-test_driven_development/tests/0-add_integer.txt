@@ -1,0 +1,16 @@
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(3, 1)
+4
+>>> add_integer(-1, 1)
+0
+>>> add_integer(-1, -1)
+-2
+>>> add_integer(1.5, 1.5)
+3
+>>> add_integer(3, 1.5)
+4
+>>> add_integer(-1.5, -1.5)
+-3
+>>> add_integer(-1, 2)
+1
+>>> add_integer(3, "3")
