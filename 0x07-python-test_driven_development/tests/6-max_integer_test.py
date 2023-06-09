@@ -31,10 +31,10 @@ class TestMaxInteger(unittest.TestCase):
         list5 = ["emma"]
         self.assertEqual(max_integer(list5), 'emma')
 
-    def test_str2(self):
-        """check  string without list"""
-        list6 = "emma"
-        self.assertEqual(max_integer(list6), "m")
+    def test_single(self):
+        """check single element list"""
+        list6 = [1]
+        self.assertEqual(max_integer(list6), 1)
 
 
 if __name__ == '__main__':
