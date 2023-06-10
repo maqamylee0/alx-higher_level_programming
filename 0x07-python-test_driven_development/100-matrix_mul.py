@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """module to multiply 2 matrices"""
 
+
 def matrix_mul(m_a, m_b):
     """function that multiplies 2 matrices"""
     for matrix in (m_a, m_b):
@@ -21,9 +22,9 @@ def matrix_mul(m_a, m_b):
             raise ValueError("m_a and m_b can't be multiplied")
         matrix_mul = []
         for i in range(len(m_a)):
-             new_row = []
-             for k in range(len(m_b[0])):
-                 element = sum(m_a[i][h] * m_b[h][k] for h in range(len(m_b)))
-                 new_row.append(element)
-             matrix_mul.append(new_row)
+            new_row = []
+            for k in range(len(m_b[0])):
+                element = sum(m_a[i][h] * m_b[h][k] for h in range(len(m_b)))
+                new_row.append(element)
+            matrix_mul.append(new_row)
         return matrix_mul
