@@ -1,6 +1,6 @@
 >>> bg = __import__('7-base_geometry').BaseGeometry.integer_validator
 >>> bg("my_int", 12)
-[TypeError] name must be an integer
+>>> bg("width", 89)
 >>> bg("name", "John")
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
