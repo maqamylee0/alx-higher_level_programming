@@ -1,0 +1,10 @@
+>>> my_list = __import__('1-my_list').MyList.print_sorted
+>>> my_list([1, 4, 2, 3, 5])
+[1, 2, 3, 4, 5]
+>>> my_list([])
+[]
+>>> my_list([1,4,"3"])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 5, in print_sorted
+TypeError: '<' not supported between instances of 'str' and 'int'
