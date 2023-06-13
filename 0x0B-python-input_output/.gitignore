@@ -12,3 +12,6 @@
 11-main.py
 12-main.py
 my_file_0.txt
+__pycache__/
+*.txt
+*.json
