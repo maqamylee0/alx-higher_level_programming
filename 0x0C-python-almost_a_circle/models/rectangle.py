@@ -17,7 +17,7 @@ class Rectangle(Base):
     @property
     def width(self):
         return self.__width
-    
+
     @width.setter
     def width(self, value):
         """settet  for width"""
@@ -111,6 +111,5 @@ class Rectangle(Base):
 
         def to_dictionary(self):
             """rectangle dictionary"""
-            return { 'id' : self.id, 'x' : self.x, 'y': self.y,
-                    'width': self.width,'height': self.height}
-
+            return {'id': self.id, 'x': self.x, 'y': self.y,
+                    'width': self.width, 'height': self.height}

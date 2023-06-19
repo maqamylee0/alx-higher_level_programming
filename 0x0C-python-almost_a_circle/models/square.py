@@ -16,6 +16,7 @@ class Square(Rectangle):
         """overide str in rectangle"""
         return (f"[Square] ({self.id}) {self.x}/{self.y} - "
                 f"{self.width}")
+
     @property
     def size(self):
         """gets size"""
@@ -54,5 +55,4 @@ class Square(Rectangle):
     def to_dictionary(self):
         """dictionary rep of square"""
         return {'id': self.id, 'x': self.x, 'size': self.size,
-                'y': self.y }
-
+                'y': self.y}
