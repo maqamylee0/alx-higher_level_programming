@@ -4,7 +4,9 @@
 
 import json
 import unittest
+from unittest.mock import patch
 from models.base import Base
+from io import StringIO
 from models.rectangle import Rectangle
 
 
@@ -62,6 +64,63 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(test5.height, 5)
         self.assertEqual(test5.x, 7)
         self.assertEqual(test5.y, 8)
+
+    def test_area(self):
+        """checks area"""
+        test6 = Rectangle(2, 2)
+        self.assertEqual(test6.area(), 4)
+
+    def test_str(self):
+        """check strigify"""
+        test7 = Rectangle(4, 6, 2, 1, 12)
+        output = '[Rectangle] (12) 2/1 - 4/6'
+        with patch('sys.stdout', new=StringIO()) as mocked_output:
+            print(test7, end="")
+        self.assertEqual(mocked_output.getvalue(), output)
+
+    def test_display_rectangle(self):
+        """test display"""
+        test8 = Rectangle(4, 6)
+        output = ("####\n" +
+                  "####\n" +
+                  "####\n" +
+                  "####\n" +
+                  "####\n" +
+                  "####\n")
+        with patch('sys.stdout', new=StringIO()) as mocked_output:
+            test8.display()
+        self.assertEqual(mocked_output.getvalue(), output)
+
+    def test_attributes(self):
+        """test attribute error"""
+        with self.assertRaises(TypeError):
+            test9 = Rectangle("1", 3)
+        with self.assertRaises(TypeError):
+            test9 = Rectangle(1, "3")
+        with self.assertRaises(TypeError):
+            test9 = Rectangle(1, 2, "3")
+        with self.assertRaises(TypeError):
+            test9 = Rectangle(1, 2, "3", 4)
+        with self.assertRaises(TypeError):
+            test9 = Rectangle(1, 2, 3, "4")
+        with self.assertRaises(TypeError):
+            test9 = Rectangle(1.3, 3.4)
+        with self.assertRaises(TypeError):
+            test9 = Rectangle(1, 3, 2.4, 9)
+        with self.assertRaises(TypeError):
+            test9 = Rectangle(1, 4, 5, 5.1)
+        with self.assertRaises(ValueError):
+            test9 = Rectangle(0, 0)
+        with self.assertRaises(ValueError):
+            test9 = Rectangle(-1, 3)
+        with self.assertRaises(ValueError):
+            test9 = Rectangle(1, -2)
+        with self.assertRaises(ValueError):
+            test9 = Rectangle(0, 2)
+        with self.assertRaises(ValueError):
+            test10 = Rectangle(1, 2, -3)
+        with self.assertRaises(ValueError):
+            test11 = Rectangle(1, 3, 3, -4)
 
 if __name__ == '__main__':
     unittest.main()
