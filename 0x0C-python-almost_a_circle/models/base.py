@@ -2,6 +2,9 @@
 """base class"""
 
 
+import json
+
+
 class Base:
     """base class"""
     __nb_objects = 0
@@ -35,8 +38,8 @@ class Base:
         with open(filename, "w") as file:
             file.write(cls.to_json_string(list_o))
 
-     @staticmethod
-     def from_json_string(json_string):
+    @staticmethod
+    def from_json_string(json_string):
         """changes from json to list"""
         if json_string is None or json_string == "":
             return []

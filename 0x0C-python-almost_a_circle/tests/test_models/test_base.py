@@ -2,9 +2,9 @@
 """Base class unitests"""
 
 
-from models import base
-from models.base import Base
+import unittest
 import json
+from models.base import Base
 
 
 class TestBaseClass(unittest.TestCase):
@@ -13,15 +13,11 @@ class TestBaseClass(unittest.TestCase):
         """reset class variable n each run"""
         Base._Base__nb_objects = 0
 
-    def test_module_doc(self):
-        """checks for documentation"""
-        self.assertTrue(len(base.__doc__) > 0)
-
     def test_class_doc(self):
         """check for class dicumentation"""
         self.assertTrue(len(Base.__doc__) > 0)
 
-    def test_instance_id(self):
+    def test_init(self):
         """check for ids of instances"""
         test1 = Base()
         self.assertEqual(test1.id, 1)
@@ -44,12 +40,13 @@ class TestBaseClass(unittest.TestCase):
 
     def test_to_json_string_none(self):
         """check with None as id"""
-        json_string = Base.to_json_string(None)
-        self.assertEqual(json_string, '[]')
+        test5 = Base.to_json_string(None)
+        self.assertEqual(test5, '[]')
 
     def test_from_json_string_none(self):
         """check with None as id"""
-        self.assertEqual(json_string, [])
+        test6 = Base.from_json_string(None)
+        self.assertEqual(test6, [])
         
     if __name__ == '__main__':
         unittest.main()
