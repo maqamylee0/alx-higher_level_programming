@@ -165,5 +165,52 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(test13.x, 2)
         self.assertEqual(test13.y, 3)
 
+    def test_create(self):
+        """check creating copy"""
+        test15 =Square.create(**{ 'id': 89 })
+        output = '[Square] (89) 0/0 - 1'
+        with patch('sys.stdout', new=StringIO()) as mocked_output:
+            print(test15, end="")
+        self.assertEqual(mocked_output.getvalue(), output)
+
+    def test_create_size(self):
+        """test with size"""
+        test16 = Square.create(**{ 'id': 89, 'size': 1 })
+        output = '[Square] (89) 0/0 - 1'
+        with patch('sys.stdout', new=StringIO()) as mocked_output:
+            print(test16, end="")
+        self.assertEqual(mocked_output.getvalue(), output)
+
+    def test_create_size_x(self):
+        """test with size and x"""
+        test17 = Square.create(**{ 'id': 89, 'size': 1, 'x': 2 })
+        output = '[Square] (89) 2/0 - 1'
+        with patch('sys.stdout', new=StringIO()) as mocked_output:
+            print(test17, end="")
+        self.assertEqual(mocked_output.getvalue(), output)
+    
+    def test_create_size_x_y(self):
+        """test with size x and y"""
+        test19 = Square.create(**{ 'id': 89, 'size': 1, 'x': 2, 'y': 3})
+        output = '[Square] (89) 2/3 - 1'
+        with patch('sys.stdout', new=StringIO()) as mocked_output:
+            print(test19, end="")
+        self.assertEqual(mocked_output.getvalue(), output)
+
+    def test_save_to_file(self):
+        """save to file"""
+        test20 = [Square(1), Square(2)]
+        Square.save_to_file(Square, test20)
+        from_file = Square.load_from_file(Square)
+        self.assertEqual(len(test20), len(from_file))
+        for i in range(len(test20)):
+            self.assertEqual(from_file[i].to_dictionary(), test20[i].to_dictionary())
+
+    def test_save_to_file_empty(self):
+        """save empty list to file"""
+        test21 = Square.save_to_file(Square, [])
+        recs = Square.load_from_file(Square)
+        self.assertEqual(len(recs), 0)
+
 if __name__ == '__main__':
     unittest.main()
