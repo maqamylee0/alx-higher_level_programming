@@ -11,7 +11,7 @@ class TestBaseClass(unittest.TestCase):
     """base class tests"""
     def setUp(self):
         """reset class variable n each run"""
-        Base._Base__nb_objects = 0
+        Base.__nb_objects = 0
 
     def test_class_doc(self):
         """check for class dicumentation"""
@@ -40,23 +40,23 @@ class TestBaseClass(unittest.TestCase):
 
     def test_to_json_string_none(self):
         """check with None as id"""
-        result5 = Base.to_json_string(None)
-        self.assertEqual(result5, '[]')
+        test5 = Base.to_json_string(None)
+        self.assertEqual(test5, '[]')
 
     def test_from_json_string_none(self):
         """check with None as id"""
-        result6 = Base.from_json_string(None)
-        self.assertEqual(result6, [])
+        test6 = Base.from_json_string(None)
+        self.assertEqual(test6, [])
 
     def test_to_json_string_empty(self):
         """checks empty lsit"""
         test7 = Base.to_json_string([])
-        self.assertEqual(test5, '[]')
+        self.assertEqual(test7, '[]')
 
     def test_from_json_string_empty(self):
         """checks empty list from json"""
         test8 = Base.from_json_string(None)
-        self.assertEqual(test6, [])
+        self.assertEqual(test8, [])
 
     def test_from_json_string(self):
         """checks expected value"""
