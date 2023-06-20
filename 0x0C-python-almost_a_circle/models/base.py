@@ -5,6 +5,7 @@
 import json
 
 
+
 class Base:
     """base class"""
     __nb_objects = 0
@@ -45,3 +46,51 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+    
+    @classmethod
+    def create(cls, **dictionary):
+        """creates a rectangle instance copy"""
+        if cls.__name__ == "Rectangle":
+            r1 = cls(1, 3, 0, 0, 4)
+        else:
+            r1 = cls(1, 3, 0, 1)
+        r1.update(**dictionary)
+        return r1
+
+    def load_from_file(cls):
+        """load from file and save instance"""
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, 'r') as file:
+                json_string = file.read()
+                dictionaries = cls.from_json_string(json_string)
+                instances = [cls.create(**dictionary) for dic in dictionaries]
+                return instances
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save instance to csv file"""
+        filename = cls.__name__ + ".csv"
+        if list_objs is None:
+            list_objs = []
+        with open(filename, 'w', newline='') as file:
+            csv_writer = csv.writer(file)
+            for obj in list_objs:
+                csv_writer.writerow(obj.to_csv_row())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """load from csv file"""
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, 'r', newline='') as file:
+                reader = csv.reader(file)
+                objs = []
+                for row in reader:
+                    objx = cls.create_from_csv_row(row)
+                    objs.append(objx)
+                    return objs
+        except FileNotFoundError:
+            return []

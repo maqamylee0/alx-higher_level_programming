@@ -206,5 +206,13 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(test13.x, 3)
         self.assertEqual(test13.y, 4)
 
+    def test_to_dictionary(self):
+        """checks for dictionary of object"""
+        test14 = Rectangle(10, 2, 1, 9)
+        output = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        with patch('sys.stdout', new=StringIO()) as mocked_output:
+            test14.to_dictionary()
+        self.assertEqual(mocked_output.getvalue(), output)
+
 if __name__ == '__main__':
     unittest.main()

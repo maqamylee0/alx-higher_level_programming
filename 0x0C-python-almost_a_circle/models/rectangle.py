@@ -112,8 +112,32 @@ class Rectangle(Base):
                     self.__x = value
                 else:
                     self.__y = value
+    
+    def to_dictionary(self):
+        """rectangle dictionary"""
+        return {'id': self.id, 'x': self.x, 'y': self.y,
+                 'width': self.width, 'height': self.height}
 
-        def to_dictionary(self):
-            """rectangle dictionary"""
-            return {'id': self.id, 'x': self.x, 'y': self.y,
-                    'width': self.width, 'height': self.height}
+    def to_json_string(list_dictionaries):
+        """checks dictionary to json"""
+        if list_dictionaries is None or len(list_dictionaries) == 0:
+            return "[]"
+        else:
+            return json.dumps(list_dictionaries)
+
+    def save_to_file(cls, list_objs):
+        """checking save to file"""
+        if list_objs is None:
+            list_objs = []
+        filename = f"{cls.__name__}.json"
+        list_dictionaries = [obj.to_dictionary() for obj in list_objs]
+        json_string = cls.to_json_string(list_dictionaries)
+        with open(filename, 'w') as file:
+            file.write(json_string)
+
+    def from_json_string(json_string):
+        """checks from json to dictionary"""
+        if json_string is None or len(json_string) == 0:
+            return []
+        else:
+            return json.loads(json_string)
