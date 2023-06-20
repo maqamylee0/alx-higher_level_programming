@@ -40,13 +40,29 @@ class TestBaseClass(unittest.TestCase):
 
     def test_to_json_string_none(self):
         """check with None as id"""
-        test5 = Base.to_json_string(None)
-        self.assertEqual(test5, '[]')
+        result5 = Base.to_json_string(None)
+        self.assertEqual(result5, '[]')
 
     def test_from_json_string_none(self):
         """check with None as id"""
-        test6 = Base.from_json_string(None)
+        result6 = Base.from_json_string(None)
+        self.assertEqual(result6, [])
+
+    def test_to_json_string_empty(self):
+        """checks empty lsit"""
+        test7 = Base.to_json_string([])
+        self.assertEqual(test5, '[]')
+
+    def test_from_json_string_empty(self):
+        """checks empty list from json"""
+        test8 = Base.from_json_string(None)
         self.assertEqual(test6, [])
+
+    def test_from_json_string(self):
+        """checks expected value"""
+        test9 = '[{"id": 1, "width":3, "height": 4, "x": 3, "y": 1}]'
+        expected = [{'id': 1, 'width': 3, 'height': 4, 'x': 3, 'y': 1}]
+        self.assertEqual(Base.from_json_string(test9), expected)
         
     if __name__ == '__main__':
         unittest.main()
