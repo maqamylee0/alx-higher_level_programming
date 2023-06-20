@@ -51,9 +51,9 @@ class Base:
     def create(cls, **dictionary):
         """creates a rectangle instance copy"""
         if cls.__name__ == "Rectangle":
-            r1 = cls(1, 3, 0, 0, 4)
+            r1 = cls(1, 1)
         else:
-            r1 = cls(1, 3, 0, 1)
+            r1 = cls(1)
         r1.update(**dictionary)
         return r1
 
@@ -64,7 +64,7 @@ class Base:
             with open(filename, 'r') as file:
                 json_string = file.read()
                 dictionaries = cls.from_json_string(json_string)
-                instances = [cls.create(**dictionary) for dic in dictionaries]
+                instances = [cls.create(**dic) for dic in dictionaries]
                 return instances
         except FileNotFoundError:
             return []

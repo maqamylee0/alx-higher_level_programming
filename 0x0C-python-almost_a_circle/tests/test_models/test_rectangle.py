@@ -208,11 +208,73 @@ class TestRectangle(unittest.TestCase):
 
     def test_to_dictionary(self):
         """checks for dictionary of object"""
-        test14 = Rectangle(10, 2, 1, 9)
-        output = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        test14 = Rectangle(10, 2, 1, 9, 1)
+        output = "{'id': 1, 'x': 1, 'y': 9, 'width': 10, 'height': 2}"
         with patch('sys.stdout', new=StringIO()) as mocked_output:
-            test14.to_dictionary()
+            print(test14.to_dictionary(), end="")
         self.assertEqual(mocked_output.getvalue(), output)
+
+    def test_create(self):
+        """check creating copy"""
+        test15 = Rectangle.create(**{ 'id': 89 })
+        output = '[Rectangle] (89) 0/0 - 1/1'
+        with patch('sys.stdout', new=StringIO()) as mocked_output:
+            print(test15, end="")
+        self.assertEqual(mocked_output.getvalue(), output)
+
+    def test_create_width(self):
+        """test with width"""
+        test16 = Rectangle.create(**{ 'id': 89, 'width': 1 })
+        output = '[Rectangle] (89) 0/0 - 1/1'
+        with patch('sys.stdout', new=StringIO()) as mocked_output:
+            print(test16, end="")
+        self.assertEqual(mocked_output.getvalue(), output)
+
+    def test_create_width_height(self):
+        """test with height and width"""
+        test17 = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2 })
+        output = '[Rectangle] (89) 0/0 - 1/2'
+        with patch('sys.stdout', new=StringIO()) as mocked_output:
+            print(test17, end="")
+        self.assertEqual(mocked_output.getvalue(), output)
+
+    def test_create_width_height_x(self):
+        """test with height, widht and x"""
+        test18 = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3 })
+        output = '[Rectangle] (89) 3/0 - 1/2'
+        with patch('sys.stdout', new=StringIO()) as mocked_output:
+            print(test18, end="")
+        self.assertEqual(mocked_output.getvalue(), output)
+
+    def test_create_width_height_x_y(self):
+        """test with height, width x and y"""
+        test19 = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4 })
+        output = '[Rectangle] (89) 3/4 - 1/2'
+        with patch('sys.stdout', new=StringIO()) as mocked_output:
+            print(test19, end="")
+        self.assertEqual(mocked_output.getvalue(), output)
+
+    def test_save_to_file(self):
+        """save to file"""
+        test20 = [Rectangle(1, 2), Rectangle(2, 3)]
+        Rectangle.save_to_file(Rectangle, test20)
+        from_file = Rectangle.load_from_file(Rectangle)
+        self.assertEqual(len(test20), len(from_file))
+        for i in range(len(test20)):
+            self.assertEqual(from_file[i].to_dictionary(), test20[i].to_dictionary())
+
+    def test_save_to_file_empty(self):
+        """save empty list to file"""
+        test21 = Rectangle.save_to_file(Rectangle, [])
+        recs = Rectangle.load_from_file(Rectangle)
+        self.assertEqual(len(recs), 0)
+
+   # def test_load_from_file(self):
+        #"""load from file"""
+        #test23 = Rectangle.load_from_file()
+
+    #def tearDown(self):
+        #Rectangle.save_to_file(None)
 
 if __name__ == '__main__':
     unittest.main()
