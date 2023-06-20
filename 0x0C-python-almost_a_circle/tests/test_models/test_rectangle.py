@@ -118,9 +118,25 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             test9 = Rectangle(0, 2)
         with self.assertRaises(ValueError):
-            test10 = Rectangle(1, 2, -3)
+            test9 = Rectangle(1, 2, -3)
         with self.assertRaises(ValueError):
-            test11 = Rectangle(1, 3, 3, -4)
+            test9 = Rectangle(1, 3, 3, -4)
+
+    def test_display_without_y(self):
+        """check for display without y"""
+        test10 = Rectangle(3, 2, 3)
+        output = ("   ###\n" + "   ###\n")
+        with patch('sys.stdout', new=StringIO()) as mocked_output:
+            test10.display()
+        self.assertEqual(mocked_output.getvalue(), output)
+
+    def test_display_with_cord(self):
+        """add all cordinates"""
+        test11 = Rectangle(3, 2, 3, 1)
+        output = ("\n   ###\n" + "   ###\n")
+        with patch('sys.stdout', new=StringIO()) as mocked_output:
+            test11.display()
+        self.assertEqual(mocked_output.getvalue(), output)
 
 if __name__ == '__main__':
     unittest.main()
