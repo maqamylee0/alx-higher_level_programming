@@ -147,30 +147,30 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(test12.y, 4)
         self.assertEqual(test12.id, 1)
 
-        test12.update(5, 6, 7, 8, 9)
-        self.assertEqual(test12.width, 5)
-        self.assertEqual(test12.height, 6)
-        self.assertEqual(test12.x, 7)
-        self.assertEqual(test12.y, 8)
-        self.assertEqual(test12.id, 9)
+        test12.update(5, 6, 7, 8, 5)
+        self.assertEqual(test12.width, 6)
+        self.assertEqual(test12.height, 7)
+        self.assertEqual(test12.x, 8)
+        self.assertEqual(test12.y, 5)
+        self.assertEqual(test12.id, 5)
 
         test12.update(89)
-        self.assertEqual(test12.width, 89)
+        self.assertEqual(test12.id, 89)
 
         test12.update(1, 2, 3)
-        self.assertEqual(test12.width, 1)
-        self.assertEqual(test12.height, 2)
-        self.assertEqual(test12.x, 3)
+        self.assertEqual(test12.width, 2)
+        self.assertEqual(test12.height, 3)
+        self.assertEqual(test12.id, 1)
 
         test12.update(4, 5)
-        self.assertEqual(test12.width, 4)
-        self.assertEqual(test12.height, 5)
+        self.assertEqual(test12.width, 5)
+        self.assertEqual(test12.id, 4)
 
         test12.update(1, 2, 3, 4)
-        self.assertEqual(test12.width, 1)
-        self.assertEqual(test12.height, 2)
-        self.assertEqual(test12.x, 3)
-        self.assertEqual(test12.y, 4)
+        self.assertEqual(test12.width, 2)
+        self.assertEqual(test12.height, 3)
+        self.assertEqual(test12.x, 4)
+        self.assertEqual(test12.id, 1)
 
     def test_update_kwargs(self):
         """change values with dictionary"""
