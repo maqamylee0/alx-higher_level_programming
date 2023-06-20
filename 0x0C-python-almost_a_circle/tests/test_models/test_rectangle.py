@@ -45,5 +45,23 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(test4.y, 4)
         self.assertEqual(test4.id, 1)
 
+    def test_getters_and_setters(self):
+        """checks for getters and setters"""
+        test5 = Rectangle(1, 2, 3, 4)
+        self.assertEqual(test5.width, 1)
+        self.assertEqual(test5.height, 2)
+        self.assertEqual(test5.x, 3)
+        self.assertEqual(test5.y, 4)
+
+        test5.height = 5
+        test5.width = 6
+        test5.x = 7
+        test5.y = 8
+
+        self.assertEqual(test5.width, 6)
+        self.assertEqual(test5.height, 5)
+        self.assertEqual(test5.x, 7)
+        self.assertEqual(test5.y, 8)
+
 if __name__ == '__main__':
     unittest.main()
