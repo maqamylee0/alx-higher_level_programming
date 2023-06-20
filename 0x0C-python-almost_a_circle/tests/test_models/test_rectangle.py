@@ -138,5 +138,73 @@ class TestRectangle(unittest.TestCase):
             test11.display()
         self.assertEqual(mocked_output.getvalue(), output)
 
+    def test_update_args(self):
+        """checks for updating with args"""
+        test12 = Rectangle(1, 2, 3, 4, 1)
+        self.assertEqual(test12.width, 1)
+        self.assertEqual(test12.height, 2)
+        self.assertEqual(test12.x, 3)
+        self.assertEqual(test12.y, 4)
+        self.assertEqual(test12.id, 1)
+
+        test12.update(5, 6, 7, 8, 9)
+        self.assertEqual(test12.width, 5)
+        self.assertEqual(test12.height, 6)
+        self.assertEqual(test12.x, 7)
+        self.assertEqual(test12.y, 8)
+        self.assertEqual(test12.id, 9)
+
+        test12.update(89)
+        self.assertEqual(test12.width, 89)
+
+        test12.update(1, 2, 3)
+        self.assertEqual(test12.width, 1)
+        self.assertEqual(test12.height, 2)
+        self.assertEqual(test12.x, 3)
+
+        test12.update(4, 5)
+        self.assertEqual(test12.width, 4)
+        self.assertEqual(test12.height, 5)
+
+        test12.update(1, 2, 3, 4)
+        self.assertEqual(test12.width, 1)
+        self.assertEqual(test12.height, 2)
+        self.assertEqual(test12.x, 3)
+        self.assertEqual(test12.y, 4)
+
+    def test_update_kwargs(self):
+        """change values with dictionary"""
+        test13 = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual(test13.width, 1)
+        self.assertEqual(test13.height, 2)
+        self.assertEqual(test13.x, 3)
+        self.assertEqual(test13.y, 4)
+        self.assertEqual(test13.id, 5)
+
+        test13.update(**{'id': 4})
+        self.assertEqual(test13.id, 4)
+
+        test13.update(**{ 'id': 89, 'width': 1 })
+        self.assertEqual(test13.id, 89)
+        self.assertEqual(test13.width, 1)
+
+        test13.update(**{ 'id': 89, 'width': 1, 'height': 2 })
+        self.assertEqual(test13.id, 89)
+        self.assertEqual(test13.width, 1)
+        self.assertEqual(test13.height, 2)
+
+        test13.update(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3 })
+        self.assertEqual(test13.id, 89)
+        self.assertEqual(test13.width, 1)
+        self.assertEqual(test13.height, 2)
+        self.assertEqual(test13.x, 3)
+
+        test13.update(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4 })
+        self.assertEqual(test13.id, 89)
+        self.assertEqual(test13.width, 1)
+        self.assertEqual(test13.height, 2)
+        self.assertEqual(test13.x, 3)
+        self.assertEqual(test13.y, 4)
+
 if __name__ == '__main__':
     unittest.main()
