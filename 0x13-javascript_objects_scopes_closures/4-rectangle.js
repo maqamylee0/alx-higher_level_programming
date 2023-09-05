@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 class Rectangle {
   constructor (width, height) {
     if (this.isValidDimensions(width, height)) {
@@ -11,11 +13,14 @@ class Rectangle {
   }
 
   print () {
-    const row = 'X'.repeat(this.width);
-    const pattern = (row + '\n').repeat(this.height);
-    console.log(pattern);
+    for (let i = 0; i < this.height; i++) {
+      let row = '';
+      for (let j = 0; j < this.width; j++) {
+        row += 'X';
+      }
+      console.log(row);
+    }
   }
-
   rotate () {
     [this.width, this.height] = [this.height, this.width];
   }
