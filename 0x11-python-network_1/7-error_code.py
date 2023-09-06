@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-script that takes in a URL,sends a request to 
-the URL and displays the body of the response
+script taking in a URL,sends a request to it and displays the body of response
 """
 
 from sys import argv

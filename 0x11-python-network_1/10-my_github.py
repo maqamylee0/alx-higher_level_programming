@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-script that takes your GitHub credentials 
-and uses the GitHub API to display the id
+script that takes your GitHub credentials uses the GitHub API to display the Id
 """
 
 from sys import argv
