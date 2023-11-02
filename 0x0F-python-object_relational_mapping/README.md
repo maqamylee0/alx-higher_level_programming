@@ -1,1 +1,0 @@
-mysqldb and ORM
