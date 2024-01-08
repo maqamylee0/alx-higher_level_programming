@@ -1,5 +1,5 @@
 #!/usr/bin/node
-//script to print javascript is amazing
+//script to print multiple texts to console
 
 const myVar = "C is fun"
 const myVar1 = "Python is cool"
