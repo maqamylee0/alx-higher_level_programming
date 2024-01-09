@@ -1,0 +1,1 @@
+Js scopes and closures
