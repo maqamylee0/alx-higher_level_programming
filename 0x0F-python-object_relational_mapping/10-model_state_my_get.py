@@ -14,8 +14,8 @@ if __name__ == "__main__":
     session = Session()
 
     state = session.query(State)\
-                    .filter_by(name=arg4)\
-                    .order_by(State.id).first()
+                   .filter_by(name=arg4)\
+                   .order_by(State.id).first()
     if state:
         print(f"{state.id}")
     else:
