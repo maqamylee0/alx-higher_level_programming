@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+    Usage: ./3-my_safe_filter_states.py <username>
+    <password> <database> <search term>
+"""
+
 import sys
 import MySQLdb
 

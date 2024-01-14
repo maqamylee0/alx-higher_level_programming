@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+    Usage: ./2-my_filter_states.py <username>
+    <password> <database> <search_term>
+"""
+
 import sys
 import MySQLdb
 

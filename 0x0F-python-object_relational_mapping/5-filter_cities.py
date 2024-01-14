@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" Usage: ./5-filter_cities.py <username> <password> <database> <city> """
+
 import sys
 import MySQLdb
 

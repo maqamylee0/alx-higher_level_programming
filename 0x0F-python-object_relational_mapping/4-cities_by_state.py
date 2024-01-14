@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" Usage: ./4-cities_by_state.py <username> <password> <database> """
+
 import sys
 import MySQLdb
 
