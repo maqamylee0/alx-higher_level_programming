@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" Usage: ./0-select_states.py <username> <password> <database> """
+
 import sys
 import MySQLdb
 
