@@ -12,7 +12,7 @@ if __name__ == '__main__':
                                passwd=sys.argv[2],
                                db=sys.argv[3], charset="utf8")
         cur = conn.cursor()
-        cur.execute(f"SELECT * FROM cities JOIN states\
+        cur.execute("SELECT * FROM cities JOIN states\
                 ON cities.state_id = states.id \
                 WHERE states.name LIKE %s \
                 ORDER BY cities.id ASC", (sys.argv[4],))
