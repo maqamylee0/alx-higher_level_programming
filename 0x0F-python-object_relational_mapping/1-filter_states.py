@@ -1,7 +1,8 @@
 #!/usr/bin/python3
+""" Usage: ./1-filter_states.py <username> <password> <database> """
+
 import sys
 import MySQLdb
-""" Usage: ./1-filter_states.py <username> <password> <database> """
 
 if __name__ == '__main__':
     if len(sys.argv) == 4:

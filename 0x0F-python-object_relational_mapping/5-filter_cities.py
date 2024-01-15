@@ -17,8 +17,9 @@ if __name__ == '__main__':
                 WHERE states.name LIKE %s \
                 ORDER BY cities.id ASC", (sys.argv[4],))
         query_rows = cur.fetchall()
-        for row in query_rows:
-            print(row)
+        cities = [city[1] for city in query_rows]
+        city_list = ", ".join(cities)
+        print(city_list)
     except MySQLdb.Error as e:
         print(f"Error {e}")
     finally:
