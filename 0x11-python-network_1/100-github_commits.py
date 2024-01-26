@@ -20,6 +20,8 @@ if __name__ == "__main__":
             print("None")
         else:
             for i in response:
-                print("{} {}".format(response.get(i["sha"]), response.get(i["author_name"])))
+                sha = i['sha']
+                author = i['commit']['author']['name']
+                print("{}: {}".format(sha, author_name))
     except ValueError:
         print("Not a valid JSON")
