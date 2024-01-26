@@ -8,20 +8,17 @@ import sys
 repo = sys.argv[1]
 user = sys.argv[2]
 
-url = "https://api.github.com/repos/{user}/{repo}/commits"
+url = f"https://api.github.com/repos/{user}/{repo}/commits"
 if __name__ == "__main__":
-    payload = {"owner": user,
-                "repo": repo
-                }
-    r = requests.get(url,  data=payload)
+    r = requests.get(url)
     try:
         response = r.json()
         if response == []:
             print("None")
         else:
             for i in range(10):
-                sha = response[i].get('sha')
-                author = response[i].get('commit').get('author').get('name')
-                print("{}: {}".format(sha, author_name))
+                sha = response[i].get("sha")
+                author = response[i].get("commit").get("author").get("name")
+                print("{}: {}".format(sha, author))
     except ValueError:
         print("Not a valid JSON")
