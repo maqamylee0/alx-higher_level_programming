@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 """
-    make a fetch request
+make a fetch request
 """
-
 import urllib.request
 
 
 url = "https://alx-intranet.hbtn.io/status"
-if __name__ == "__main__":    
+if __name__ == "__main__":
     with urllib.request.urlopen(url) as response:
         data = response.read()
         utf8_content = data.decode('utf-8')
