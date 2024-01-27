@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-#using request library to fetch
-
+"""
+using request library to fetch
+"""
 import requests
 
 if __name__ == "__main__":

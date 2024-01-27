@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-#using request library to send request to github api and show last user commits
-
+"""
+using request library to send request to github api and show last user commits
+"""
 import requests
 import sys
 

@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-#post data
-
+"""
+post data
+"""
 import sys
 import urllib.request
 import urllib.parse

@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-#take request url and display header value
-
+"""
+take request url and display header value
+"""
 import sys
 import urllib.request
 

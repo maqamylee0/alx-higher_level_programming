@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-#using request library to send request and handle error
-
+"""
+using request library to send request and handle error
+"""
 import requests
 import sys
 

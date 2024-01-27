@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-#using request library to get header value
-
+"""
+using request library to get header value
+"""
 import requests
 import sys
 

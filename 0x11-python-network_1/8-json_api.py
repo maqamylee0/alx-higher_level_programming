@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-#using request library to send request and handle params
-
+"""
+using request library to send request and handle params
+"""
 import requests
 import sys
 

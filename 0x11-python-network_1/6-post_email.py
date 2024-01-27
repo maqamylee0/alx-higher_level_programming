@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-#using request library to post email value
-
+"""
+using request library to post email value
+"""
 import requests
 import sys
 

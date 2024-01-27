@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-#using request library to send request to github api and show user id
-
+"""
+using request library to send request to github api and show user id
+"""
 import requests
 import sys
 from requests.auth import HTTPBasicAuth
