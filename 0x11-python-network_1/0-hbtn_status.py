@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-#make a fetch request
+"""
+    make a fetch request
+"""
 
 import urllib.request
 
